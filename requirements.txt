@@ -1,0 +1,10 @@
+sqlalchemy[asyncio]
+
+## SQLite（默认）
+aiosqlite
+
+## PostgreSQL
+#asyncpg
+
+# MySQL
+#aiomysql

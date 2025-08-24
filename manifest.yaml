@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Plugin
+metadata:
+  name: ChatLogger
+  label:
+    en_US: Chat Logger
+    zh_Hans: 聊天记录器
+  description:
+    en_US: A chat logging plugin that records group chat messages and bot replies to a database, supporting multiple databases and group chat whitelist/blacklist filtering.
+    zh_Hans: 一个聊天记录插件，将群聊消息和机器人回复记录到数据库中，支持多种数据库和群聊黑白名单过滤。
+  version: "1.0.0"
+  author: "Ljzd-PRO"
+  repository: "https://github.com/Ljzd-PRO/ChatLoggerPlugin"
+execution:
+  python:
+    path: main.py
+    attr: ChatLoggerPlugin
+spec:
+  config:
+    - name: database_url
+      type: string
+      label:
+        en_US: Database URL
+        zh_Hans: 数据库URL
+      description:
+        en_US: Database connection URL (SQLite, PostgreSQL, MySQL, etc.)
+        zh_Hans: 数据库连接URL（SQLite、PostgreSQL、MySQL等）
+      default: "sqlite+aiosqlite:///./data/plugins/ChatLogger/chat_logs.db"
+
+    - name: bot_nickname
+      type: string
+      label:
+        en_US: Bot Nickname
+        zh_Hans: 机器人昵称
+      description:
+        en_US: Nickname of the bot for logging
+        zh_Hans: 机器人在记录中的昵称
+      default: "Self"
+
+    - name: include_bot_messages
+      type: boolean
+      label:
+        en_US: Include Bot Messages
+        zh_Hans: 包含机器人消息
+      description:
+        en_US: Whether to record bot's own messages
+        zh_Hans: 是否记录机器人自己的消息
+      default: true
+
+    - name: group_whitelist
+      type: array[string]
+      label:
+        en_US: Group Whitelist
+        zh_Hans: 群组白名单
+      description:
+        en_US: List of group IDs to log (empty means log all groups)
+        zh_Hans: 要记录的群组ID列表（空表示记录所有群组）
+      default: []
+
+    - name: group_blacklist
+      type: array[string]
+      label:
+        en_US: Group Blacklist
+        zh_Hans: 群组黑名单
+      description:
+        en_US: List of group IDs to exclude from logging
+        zh_Hans: 要排除记录的群组ID列表
+      default: []
