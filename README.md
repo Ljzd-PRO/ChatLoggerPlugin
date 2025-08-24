@@ -13,6 +13,9 @@ ChatLoggerPlugin 是一个 LangBot 插件，用于将群聊消息和机器人回
   - 目前不包含图片
 
 ### 安装步骤
+> [!Important]
+> 仅支持 LangBot v4.0.0 之后的版本
+
 1. 在 LangBot WebUI 中安装，或使用管理员账号向机器人发送命令：
    ```
    !plugin get https://github.com/Ljzd-PRO/ChatLoggerPlugin
@@ -40,7 +43,8 @@ ChatLoggerPlugin 是一个 LangBot 插件，用于将群聊消息和机器人回
 ### 配置方法
 请在 LangBot WebUI 中配置
 
-默认的 SQLite 数据库位于 `data/plugins/ChatLogger/chat_logs.db`
+> [!Note]
+> 默认的 SQLite 数据库位于 `data/plugins/ChatLogger/chat_logs.db`
 
 #### 常见数据库连接地址示例
 - **SQLite**：`sqlite+aiosqlite:///./data/plugins/ChatLogger/chat_logs.db`
