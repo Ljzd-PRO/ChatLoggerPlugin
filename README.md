@@ -40,8 +40,10 @@ ChatLoggerPlugin 是一个 LangBot 插件，用于将群聊消息和机器人回
 ### 配置方法
 请在 LangBot WebUI 中配置
 
+默认的 SQLite 数据库位于 `data/plugins/ChatLogger/chat_logs.db`
+
 #### 常见数据库连接地址示例
-- **SQLite**：`sqlite+aiosqlite:///./chat_logs.db`
+- **SQLite**：`sqlite+aiosqlite:///./data/plugins/ChatLogger/chat_logs.db`
 - **PostgreSQL**：`postgresql+asyncpg://用户名:密码@主机:端口/数据库名`
   - 使用 `public` 架构（Schema）
 - **MySQL**：`mysql+aiomysql://用户名:密码@主机:端口/数据库名`
